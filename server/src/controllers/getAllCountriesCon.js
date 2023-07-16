@@ -1,6 +1,7 @@
 const axios=require('axios');
 const {Country}=require('../db.js');
 
+// *Traigo todos los paises de la api(local)
     const getAllCountriesCon =async() => {
         const {data} = await axios.get('http://localhost:5000/countries');
         const countries =  data.map(country => {
@@ -15,8 +16,10 @@ const {Country}=require('../db.js');
                 population: country.population,
             };
         })
+        // * Subo todos los paises a la base de datos
     const dbCreate= await Country.bulkCreate(countries);
-    return dbCreate;
+    // console.log(dbCreate);
+    return dbCreate;//* Devuelvo todos los paises
 }
 
 module.exports=getAllCountriesCon;
