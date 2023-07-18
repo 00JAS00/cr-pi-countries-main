@@ -22,23 +22,17 @@ export const getCountries = () => async (dispatch) => {
     payload: data,
   });
 };
-export const getById = (id,del) => {
+export const getCountry = (id) => {
   return async (dispatch) => {
     const response = await axios.get(URL + "countries/" + id);
     const data = response.data;
-    if(del){
-      return dispatch({
-        type: GET_BYID,
-        payload: {},
-      });
-    }else{
     return dispatch({
       type: GET_BYID,
       payload: data,
-    });
+      });
     }
-  };
 };
+
 
 export const getCountriesByName = (name) => async (dispatch) => {
   const response = await axios.get(URL + `countries?name=${name}`);

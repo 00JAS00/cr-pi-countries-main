@@ -6,7 +6,7 @@ const Card=({id,name,flags,continent})=> {
     return (
         <article className={style.card}>
 
-            <NavLink to={`/details/${id}`} className={style.nameLink}>
+            <NavLink to={`/detail/${id}`} className={style.nameLink}>
             <div className={style.image}>
                 <img src={flags} alt={`Flag of ${name}`} className={style.cimage}/>
             </div>

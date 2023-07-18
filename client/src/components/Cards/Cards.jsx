@@ -7,11 +7,7 @@ import style from './Cards.module.css'
 const Cards=()=> {
     const dispatch = useDispatch()
     const countries= useSelector(state => state.countries)
-    if(countries.length===0){
-    useEffect(()=>{
-        dispatch(getCountries());
-
-    },[dispatch])}
+    countries.length<1 && dispatch(getCountries());
     return (
         <section className={style.Container_Cards}>
             {countries.map(country=>(

@@ -1,16 +1,19 @@
 import { useParams } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import {getById} from "../../Redux/Actions/Actions";
+import {getCountry} from "../../Redux/Actions/Actions";
+import { NavLink } from "react-router-dom";
 
 const Detail=()=> {
     const { id } = useParams();
     const dispatch = useDispatch();
     const country= useSelector(state => state.byId);
     // const del=true
+    
     useEffect(()=>{
-        dispatch(getById(id))
+        dispatch(getCountry(id))
     },[dispatch, id])
+    console.log(country)
     return (
         <div>
             <div>

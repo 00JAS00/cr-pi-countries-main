@@ -42,9 +42,9 @@ const reducer=(state=initialState,action)=>{
         case ORDER_COUNTRIES:
             let orderedCountries;
             if(action.payload === 'asc'){
-                orderedCountries = state.allCountries.sort((a, b) => a.name.localCompare(b.name));
+                orderedCountries = state.countries.sort((a, b) => a.name.localCompare(b.name));
             }else{
-                orderedCountries= state.allCountries.sort((a, b) => b.name.localCompare(a.name));
+                orderedCountries= state.countries.sort((a, b) => b.name.localCompare(a.name));
             }
             return{
                 ...state,
@@ -53,9 +53,9 @@ const reducer=(state=initialState,action)=>{
         case ORDER_POPULATION:
             let orderedPopulation;
             if(action.payload === 'Mayor'){
-                orderedPopulation = state.allCountries.sort((a, b) => (a.population > b.population) ? 1 : -1);
+                orderedPopulation = state.countries.sort((a, b) => (a.population > b.population) ? 1 : -1);
             }else{
-                orderedPopulation= state.allCountries.sort((a, b) => (a.population > b.population) ? -1 : 1);
+                orderedPopulation= state.countries.sort((a, b) => (a.population > b.population) ? -1 : 1);
             }
             return{
                 ...state,
@@ -64,12 +64,12 @@ const reducer=(state=initialState,action)=>{
         case FILTER_BY_CONTINENT:
             return{
                 ...state,
-                filter:[...action.payload]
+                order:[...action.payload]
             }
         case FILTER_BY_ACTIVITY:
             return{
                 ...state,
-                filter:action.payload
+                order:action.payload
             }
         case NEXT_PAGE:
             return{
