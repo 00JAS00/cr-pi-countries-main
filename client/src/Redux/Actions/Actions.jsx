@@ -1,6 +1,7 @@
-import {GET_COUNTRIES, GET_BYNAME, GET_DETAIL, GET_ACTIVITIES, POST_ACTIVITIES, ORDER_COUNTRIES, ORDER_POPULATION,
+import {GET_COUNTRIES, GET_BYNAME, GET_ACTIVITIES, POST_ACTIVITIES, ORDER_COUNTRIES, ORDER_POPULATION,
 FILTER_BY_CONTINENT, FILTER_BY_ACTIVITY, NEXT_PAGE, PREV_PAGE,} from './Types'
 import axios from 'axios'
+// eslint-disable-next-line react-refresh/only-export-components
 const URL = 'http://localhost:3001/'
 export const getCountries = () => async(dispatch)=>{
     const response =await axios.get(URL+'countries')
@@ -15,14 +16,6 @@ export const getCountriesByName = (name) => async(dispatch)=>{
     const data = response.data;
     return dispatch({
         type: GET_BYNAME,
-        payload: data
-    })
-}
-export const getDetail = (id) => async(dispatch)=>{
-    const response =await axios.get(URL+`countries/${id}`)
-    const data = response.data;
-    return dispatch({
-        type: GET_DETAIL,
         payload: data
     })
 }

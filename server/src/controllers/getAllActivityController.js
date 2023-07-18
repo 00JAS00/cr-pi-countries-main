@@ -1,4 +1,4 @@
-const {Activity}=require("../db");
+const {Activity,Country}=require("../db");
 // *Traigo todas las actividades de la Base de Datos
 const getAllActivityController=async()=>{
     const activities=await Activity.findAll({

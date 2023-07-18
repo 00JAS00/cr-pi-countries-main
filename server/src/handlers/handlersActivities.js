@@ -3,9 +3,9 @@ const getAllActivityController=require("../controllers/getAllActivityController"
 
 const createActivity=async(req,res)=>{
     try{
-        const {name,difficulty,duration,season}=req.body;
-        const newActivity=await createActivityController(name,difficulty,duration,season);
-        res.status(201).json("Activity created with this date:"+ newActivity);
+        const {name,difficulty,duration,season,countries}=req.body;
+        const newActivity=await createActivityController(name,difficulty,duration,season,countries);
+        res.status(201).json(newActivity);
     }catch(err){
         res.status(400).json({message:err.message});
     }
