@@ -1,7 +1,32 @@
+import { useParams } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import {getById} from "../../Redux/Actions/Actions";
+
 const Detail=()=> {
+    const { id } = useParams();
+    const dispatch = useDispatch();
+    const country= useSelector(state => state.byId);
+    // const del=true
+    useEffect(()=>{
+        dispatch(getById(id))
+    },[dispatch, id])
     return (
         <div>
-            <h1>Detail</h1>
+            <div>
+                <h1>Detail</h1>
+                <img src={country.flags} alt="" />
+                <ul>
+                    <li>{country.id}</li>
+                    <li>{country.name}</li>
+                    <li>{country.continent}</li>
+                    <li>{country.capital}</li>
+                    {country.subregion && <li>{country.subregion}</li>}
+                    {country.subregion && <li>{country.area}</li>}
+                    <li>{country.population}</li>
+                </ul>
+                <NavLink to={`/home`}>Volver</NavLink>
+            </div>
         </div>
     )
 }

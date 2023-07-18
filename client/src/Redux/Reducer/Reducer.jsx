@@ -1,9 +1,10 @@
-import {GET_COUNTRIES, GET_BYNAME, GET_ACTIVITIES, POST_ACTIVITIES, ORDER_COUNTRIES, ORDER_POPULATION,
+import {GET_COUNTRIES, GET_BYNAME, GET_ACTIVITIES,GET_BYID, POST_ACTIVITIES, ORDER_COUNTRIES, ORDER_POPULATION,
     FILTER_BY_CONTINENT, FILTER_BY_ACTIVITY, NEXT_PAGE, PREV_PAGE,} from '../Actions/Types'
 
 const initialState = {
     allCountries:[],
     countries:[],
+    byId:{},
     activities:[],
     filter:[],
     order:[],
@@ -21,8 +22,12 @@ const reducer=(state=initialState,action)=>{
         case GET_BYNAME:
             return{
                 ...state,
-                allCountries:action.payload,
                 countries:action.payload
+            }
+        case GET_BYID:
+            return{
+                ...state,
+                byId:action.payload
             }
         case GET_ACTIVITIES:
             return{
@@ -37,7 +42,7 @@ const reducer=(state=initialState,action)=>{
         case ORDER_COUNTRIES:
             let orderedCountries;
             if(action.payload === 'asc'){
-                orderedCountries = state.allCountries.sort((a, b) => a.name.localeCompare(b.name));
+                orderedCountries = state.allCountries.sort((a, b) => a.name.localCompare(b.name));
             }else{
                 orderedCountries= state.allCountries.sort((a, b) => b.name.localCompare(a.name));
             }
