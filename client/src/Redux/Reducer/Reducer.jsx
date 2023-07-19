@@ -1,5 +1,5 @@
 /* eslint-disable no-case-declarations */
-import { GET_COUNTRIES, GET_BYNAME, GET_ACTIVITIES, GET_BYID, POST_ACTIVITIES, ORDER_COUNTRIES, ORDER_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITY, NEXT_PAGE, PREV_PAGE } from '../Actions/Types'
+import { GET_COUNTRIES, GET_BYNAME, GET_ACTIVITIES, POST_ACTIVITY, GET_BYID, ORDER_COUNTRIES, ORDER_POPULATION, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITY, NEXT_PAGE, PREV_PAGE } from '../Actions/Types'
 
 const initialState = {
     allCountries: [],
@@ -16,12 +16,14 @@ const reducer = (state = initialState, action) => {
         return {
         ...state,
         allCountries: action.payload,
-        countries: action.payload,
+        countries: action.payload
         }
     case GET_BYNAME:
+        
         return {
         ...state,
         countries: action.payload,
+        page:1
         }
     case GET_BYID:
         return {
@@ -33,11 +35,10 @@ const reducer = (state = initialState, action) => {
         ...state,
         activities: action.payload
         }
-    case POST_ACTIVITIES:
-        return {
-        ...state,
-        activities: action.payload
-        }
+        
+    case POST_ACTIVITY:
+        return {...state}
+
     case ORDER_COUNTRIES:
         let orderedCountries =action.payload === 'asc' ? state.countries.sort((a, b) => a.name.localeCompare(b.name)) :
         state.countries.sort((a, b) => b.name.localeCompare(a.name))
@@ -56,8 +57,7 @@ const reducer = (state = initialState, action) => {
         }
         return {
         ...state,
-        countries: [...orderedPopulation],
-        page: 1
+        countries: [...orderedPopulation]
         }
     case FILTER_BY_CONTINENT:
         let countrCopy = state.countries;
@@ -65,7 +65,8 @@ const reducer = (state = initialState, action) => {
         
         return {
             ...state,
-            countries: [...filteredContinent]
+            countries: [...filteredContinent],
+            page:1
         }
     case FILTER_BY_ACTIVITY:
         let countCopy = state.countries;
@@ -75,16 +76,17 @@ const reducer = (state = initialState, action) => {
         return {
         ...state,
         countries: [...filterAct],
+        page:1
         }
     case NEXT_PAGE:
         return {
         ...state,
-        nextPage: state.page + 1
+        page: state.page + 1
         }
     case PREV_PAGE:
         return {
         ...state,
-        prevPage: state.page - 1
+        page: state.page-1
         }
     default:
         return { ...state };

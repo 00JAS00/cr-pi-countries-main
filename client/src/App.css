@@ -3,8 +3,13 @@
     flex-direction: column;
 }
 main{
-    background-image: url("./assets/earth.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    max-width: 100%;
+
+}
+    
+.bg-pan-left{
+    animation:color-change-2x 2s linear infinite alternate both;
+}
+@keyframes color-change-2x{
+    0%{background:#19dcea}
+    100%{background:#b22cff}
 }

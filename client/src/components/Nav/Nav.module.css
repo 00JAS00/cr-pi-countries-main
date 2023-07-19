@@ -1,0 +1,8 @@
+.nav{
+    display: flex;
+    flex-direction: column;
+}
+.container_input{
+    display: flex;
+    
+}

@@ -1,7 +1,7 @@
 import {useState} from "react";
 import { useDispatch } from "react-redux";
 import { getCountriesByName } from "../../Redux/Actions/Actions";
-import style from "./searchBat.Module.css";
+import style from "./searchBar.Module.css";
 const SearchBar = () => {
     const dispatch = useDispatch()
     const [name, setName] = useState("");
@@ -19,7 +19,7 @@ const SearchBar = () => {
         setName('')
     }   
     return (
-        <div>
+        <div className={style.po}>
             <div className={style.container_input}>
                 {error && <span className={style.error}>{error}</span>
                 }

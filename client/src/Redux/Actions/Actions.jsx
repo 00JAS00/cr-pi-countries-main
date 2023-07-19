@@ -3,13 +3,13 @@ import {
   GET_BYID,
   GET_BYNAME,
   GET_ACTIVITIES,
-  POST_ACTIVITIES,
+  POST_ACTIVITY,
   ORDER_COUNTRIES,
   ORDER_POPULATION,
   FILTER_BY_CONTINENT,
   FILTER_BY_ACTIVITY,
   NEXT_PAGE,
-  PREV_PAGE,
+  PREV_PAGE
 } from "./Types";
 import axios from "axios";
 // eslint-disable-next-line react-refresh/only-export-components
@@ -50,21 +50,14 @@ export const getActivities = () => async (dispatch) => {
     payload: data,
   });
 };
-export const postActivities =(name, difficulty, duration, season) => async (dispatch) => {
-    const response = await axios.post(URL + "activities", {
-      name,
-      difficulty,
-      duration,
-      season,
-    });
-    const data = response.data;
-    // *en caso de que algo falle en la subida, uso un
-    // console.log(data)
-    return dispatch({
-      type: POST_ACTIVITIES,
-      payload: data,
-    });
-  };
+export const postActivity = (activity) => async (dispatch) => {
+  const response = await axios.post(URL + "activities", activity);
+  const data = response.data;
+  return dispatch({
+    type: POST_ACTIVITY,
+    payload: data,
+  });
+}
 export const orderByName = (payload) => {
   return {
     type: ORDER_COUNTRIES,
