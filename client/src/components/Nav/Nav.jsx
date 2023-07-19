@@ -12,9 +12,8 @@ const Nav=()=> {
     return (
         <nav>
             <Filters />
-            {pathname == '/home' && <NavLink to="/home" onClick={()=>dispatch(getCountries())}>home</NavLink>}
+            {pathname == '/home' && <NavLink to="/home" onClick={() => dispatch(getCountries())}>home</NavLink>}
             <SearchBar />
-            
         </nav>
     )
 }

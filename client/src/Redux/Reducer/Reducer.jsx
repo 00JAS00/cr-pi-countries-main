@@ -16,13 +16,12 @@ const reducer = (state = initialState, action) => {
         return {
         ...state,
         allCountries: action.payload,
-        countries: action.payload
+        countries: action.payload,
         }
     case GET_BYNAME:
         return {
         ...state,
         countries: action.payload,
-        filter: action.payload
         }
     case GET_BYID:
         return {
@@ -46,7 +45,7 @@ const reducer = (state = initialState, action) => {
 
         return {
         ...state,
-        filter: [...orderedCountries]
+        countries: [...orderedCountries]
         };
     case ORDER_POPULATION:
         let orderedPopulation;
@@ -57,24 +56,25 @@ const reducer = (state = initialState, action) => {
         }
         return {
         ...state,
-        filter: [...orderedPopulation],
+        countries: [...orderedPopulation],
         page: 1
         }
     case FILTER_BY_CONTINENT:
-        const boolean= action.payload === 'all'
-        const filteredContinent = boolean ? state.countries :
-            state.countries.filter(country => country.continent === action.payload);
+        let countrCopy = state.countries;
+        const filteredContinent =action.payload==='all' ? countrCopy:state.countries.filter(country=>country.continents === action.payload);
+        
         return {
             ...state,
-            filter: [...filteredContinent]
+            countries: [...filteredContinent]
         }
     case FILTER_BY_ACTIVITY:
-        const filterAct = action.payload === 'all' ? state.countries :
-        state.filter.filter((country) =>
+        let countCopy = state.countries;
+        const filterAct = action.payload === 'all' ? countCopy :
+        state.countries.filter((country) =>
             country.Activities?.some((activity) => activity.name === action.payload))
         return {
         ...state,
-        filter: [...filterAct],
+        countries: [...filterAct],
         }
     case NEXT_PAGE:
         return {

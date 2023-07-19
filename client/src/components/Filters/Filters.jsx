@@ -22,8 +22,6 @@ const Filters=()=>{
     let continents = countries.map(element => element.continent)
     const valuesSetContinent= [...new Set(continents)];
 
-
-
     // * HANDLERS
 
     const handlerActivity = (event) => {
@@ -45,24 +43,27 @@ const Filters=()=>{
         dispatch(orderPopulation(major))
     }
 
-
     return (
         <div className={style.container}>
             <h1>Filtros</h1>
             <select name="alf"  onChange={handlerOrderByName}>
+                <option disabled selected>alfabetical</option>
                 <option value="all">All</option>
                 <option value="asc">A-Z</option>
                 <option value="desc">Z-A</option>
             </select>
             <select name="population" onChange={handlerByPopulation}>
+                <option disabled selected>populations</option>
                 <option value="Maj">Higher population</option>
                 <option value="Min">Lower population</option>
             </select>
             <select name="continent" onChange={handlerFilterByContinent}>
+                <option disabled selected>continents</option>
                 <option value="all">All</option>
                 {valuesSetContinent.map((element,index) => (<option  key={index} value={element}>{element}</option>))}
             </select>
             {valuesSet.length>0&&<select name="Activity" onChange={handlerActivity}>
+                <option disabled selected>activities</option>
                 <option value="all">All</option>
                 {valuesSet.map((element,index) => (<option  key={index} value={element}>{element}</option>))}
                 </select>}
