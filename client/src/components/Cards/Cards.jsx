@@ -5,7 +5,6 @@ import style from './Cards.module.css'
 import Paginate from '../Paginate/Paginate'
 
 const Cards=()=> {
-    const dispatch = useDispatch()
     const countries= useSelector(state => state.countries)
     const {page} = useSelector((state) => state)
 
@@ -15,7 +14,6 @@ const Cards=()=> {
     let cantPages = countries.length / 10;
 
     let viewCountries = countries?.slice(desde, hasta)   
-    countries.length<1 && dispatch(getCountries());
     
     return (
         <div className={style.Container}>

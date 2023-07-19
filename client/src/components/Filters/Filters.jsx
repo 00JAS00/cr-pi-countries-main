@@ -15,10 +15,14 @@ const Filters=()=>{
     }, [dispatch])
 
     // * OPTION DE ACTIVIDADES VALORES
+
     let activity= activities.map(element => element.name)
         // * Filtro de valores repetidos
+
     const valuesSet= [...new Set(activity)];
+
     // * OPTION DE CONTINENTES
+    
     let continents = countries.map(element => element.continent)
     const valuesSetContinent= [...new Set(continents)];
 

@@ -42,7 +42,7 @@ const reducer = (state = initialState, action) => {
     case ORDER_COUNTRIES:
         let orderedCountries =action.payload === 'asc' ? state.countries.sort((a, b) => a.name.localeCompare(b.name)) :
         state.countries.sort((a, b) => b.name.localeCompare(a.name))
-        if(action.payload === 'all') orderedCountries = state.countries;
+        if(action.payload === 'all') orderedCountries = state.allCountries;
 
         return {
         ...state,
@@ -59,23 +59,24 @@ const reducer = (state = initialState, action) => {
         ...state,
         countries: [...orderedPopulation]
         }
-    case FILTER_BY_CONTINENT:
-        let countrCopy = state.countries;
-        const filteredContinent =action.payload==='all' ? countrCopy:state.countries.filter(country=>country.continents === action.payload);
         
+        case FILTER_BY_CONTINENT:
+            const allCountries = state.allCountries;
+            const filteredContinent = action.payload === 'All' ? allCountries : state.countries.filter(element => element.continent === action.payload)
+            
+        // console.log(filteredContinent)
         return {
             ...state,
-            countries: [...filteredContinent],
+            countries: filteredContinent,
             page:1
         }
     case FILTER_BY_ACTIVITY:
-        let countCopy = state.countries;
-        const filterAct = action.payload === 'all' ? countCopy :
+        const filterAct = action.payload === 'all' ? state.allCountries :
         state.countries.filter((country) =>
-            country.Activities?.some((activity) => activity.name === action.payload))
+            country.Activities?.some((activity) => activity.name == action.payload))
         return {
         ...state,
-        countries: [...filterAct],
+        countries: filterAct,
         page:1
         }
     case NEXT_PAGE:

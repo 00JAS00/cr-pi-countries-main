@@ -1,6 +1,14 @@
 .landing{
-    background-color: green;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(128, 128, 128, 0.8);
     max-width: 800px;
     max-height: 800px;
-    margin: auto;
+    margin: 20% auto;
+    border-radius: 1rem;
+}
+h1{
+    font-size: 60px;
+    text-align: center;
+    color: #fff;
 }

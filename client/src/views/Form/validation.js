@@ -1,5 +1,6 @@
 const validation = (form) => {
     const errors = {}
+    
 
     //* validation name
 

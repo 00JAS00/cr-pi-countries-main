@@ -81,7 +81,7 @@ const Form=()=> {
             countries: [],
         })
     }
-// 
+// TODO: DELETE COUNTRIES
     const deleteCountry = (event) => {
         setForm({
             ...form,
@@ -92,7 +92,7 @@ const Form=()=> {
             countries: form.countries.filter((country) => country !== event.target.value)
         }))
     }
-
+// TODO: CATCH
     const handleErrors = (event) => {
         event.preventDefault();
         setErrors(validation({

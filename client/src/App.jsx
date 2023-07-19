@@ -1,6 +1,9 @@
 // ! Dependencias 
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { getCountries } from './Redux/Actions/Actions'
 // *Components
 
 import Cards from './components/Cards/Cards'
@@ -14,6 +17,11 @@ import Form from './views/Form/Form'
 import { useLocation } from 'react-router-dom'
 function App() {
   const { pathname } = useLocation()
+  const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getCountries());
+    }, [dispatch])
   return (
     <div className="app bg-pan-left">
         <header>

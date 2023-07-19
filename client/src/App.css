@@ -1,15 +1,14 @@
 .app{
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    background:url('https://img.freepik.com/vector-premium/todas-banderas-nacionales-mundo-estilo-fondo_18981-512.jpg');
 }
-main{
-
-}
-    
-.bg-pan-left{
+/* .bg-pan-left{
     animation:color-change-2x 2s linear infinite alternate both;
 }
 @keyframes color-change-2x{
     0%{background:#19dcea}
     100%{background:#b22cff}
-}
+} */

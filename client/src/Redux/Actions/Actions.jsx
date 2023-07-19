@@ -73,13 +73,13 @@ export const orderPopulation = (payload) => {
 export const filterByContinent = (payload) => {
   return {
     type:FILTER_BY_CONTINENT,
-    payload,
+    payload:payload,
   };
 };
 export const filterByActivity = (payload) => {
   return {
     type: FILTER_BY_ACTIVITY,
-    payload,
+    payload:payload,
   };
 };
 export const nextPage = () => {
