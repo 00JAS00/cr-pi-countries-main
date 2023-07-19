@@ -49,7 +49,6 @@ const Filters=()=>{
 
     return (
         <div className={style.container}>
-            <h1>Filtros</h1>
             <select name="alf"  onChange={handlerOrderByName}>
                 <option disabled selected>alfabetical</option>
                 <option value="all">All</option>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 import { NavLink } from "react-router-dom";
 const Card=({id,name,flags,continent})=> {
-
+    
     return (
         <article className={style.card}>
 

@@ -12,10 +12,14 @@ const Nav=()=> {
     const {pathname} = useLocation()
     return (
         <nav className={style.nav}>
-            <div className={style.container_input}>
-                <NavLink  to='/form'> Activities </NavLink>
-            {pathname == '/home' && <NavLink to="/home" onClick={() => dispatch(getCountries())}>home</NavLink>}
-            <SearchBar />
+            <div className={style.container}>
+                
+                <NavLink to="/home" className={style.home} onClick={() => dispatch(getCountries())} >home</NavLink>
+                <div className={style.searchBar}>
+                    <NavLink className={style.navLink}>Activities</NavLink>
+                    <NavLink  to='/form' className={style.navLink}> crear actividades</NavLink>
+                    <SearchBar />
+                </div>
             
             </div>          
             <Filters />

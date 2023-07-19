@@ -35,9 +35,6 @@ function App() {
               <Route path="/form" element={<Form />} />
             </Routes>
         </main>
-        {pathname !== '/' && <footer>
-              Footer
-        </footer>}
     </div>
   )
 }

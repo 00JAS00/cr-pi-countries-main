@@ -1,8 +1,5 @@
-.Container_Cards{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 80%;
-    gap: 20px;
-    margin: auto;
-
+.Container_Cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }

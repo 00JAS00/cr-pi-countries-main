@@ -1,5 +1,19 @@
 
-.containerpo{
-    display: flex;
-    flex-direction: row;
+.po {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 1000px;
 }
+
+.container_input {  
+}
+
+.input {
+  display:inline;
+
+}
+.search{
+    display:inline;
+}
+

@@ -21,11 +21,10 @@ const SearchBar = () => {
     return (
         <div className={style.po}>
             <div className={style.container_input}>
-                {error && <span className={style.error}>{error}</span>
-                }
-                <input type="search" placeholder="Search" onChange={handlerChange} value={name}/>
+                <input className={style.input} type="search" placeholder="Search" onChange={handlerChange} value={name}/>
+                {error && <span className={style.error}>{error}</span>}
             </div>
-            <button onClick={submitHandler}>Search</button>
+            <button onClick={submitHandler} className={style.search}>Search</button>
         </div>
     )
 }

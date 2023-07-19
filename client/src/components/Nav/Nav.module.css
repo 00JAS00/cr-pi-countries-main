@@ -1,8 +1,37 @@
 .nav{
     display: flex;
     flex-direction: column;
+    background: #7b0307;
+    width:100%;
+    padding:1rem;
+    margin-bottom: 1.5rem;
+
 }
-.container_input{
+.container{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
     
+}
+.home{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+
+}
+.searchBar{
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+.navLink{
+    background: #7b0307 ;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-transform:uppercase;
 }
