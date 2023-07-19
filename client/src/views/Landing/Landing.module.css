@@ -2,13 +2,26 @@
     display: flex;
     flex-direction: column;
     background-color: rgba(128, 128, 128, 0.8);
+    align-items: center;
     max-width: 800px;
     max-height: 800px;
-    margin: 20% auto;
+    padding:;
+    margin: 5% auto;
     border-radius: 1rem;
 }
 h1{
     font-size: 60px;
+    text-transform: capitalize;
     text-align: center;
-    color: #fff;
 }
+.link {
+    color: #000000;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+    background: #7f181b;
+  }
+  .link:hover{
+      color: #dddde0;
+  }
