@@ -18,15 +18,15 @@ const Detail=()=> {
         <div>
             <div>
                 <h1>Detail</h1>
-                <img src={country.flags} alt="" />
+                <img src={country.flags} alt="flags" />
                 <ul>
-                    <li>{country.id}</li>
-                    <li>{country.name}</li>
-                    <li>{country.continent}</li>
-                    <li>{country.capital}</li>
-                    {country.subregion && <li>{country.subregion}</li>}
-                    {country.subregion && <li>{country.area}</li>}
-                    <li>{country.population}</li>
+                    <li>id:{country.id}</li>
+                    <li>name:{country.name}</li>
+                    <li>continent:{country.continent}</li>
+                    <li>capital:{country.capital}</li>
+                    {country.subregion && <li>subregion:{country.subregion}</li>}
+                    {country.subregion && <li>area:{country.area}</li>}
+                    <li>population{country.population}</li>
                 </ul>
                 <NavLink to={`/home`}>Volver</NavLink>
             </div>

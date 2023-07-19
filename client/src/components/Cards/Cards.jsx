@@ -8,18 +8,31 @@ const Cards=()=> {
     const dispatch = useDispatch()
     const countries= useSelector(state => state.countries)
     countries.length<1 && dispatch(getCountries());
+    const filter=useSelector(state=>state.filter)
+    // * Con stringify() convierte un objeto en una cadena y asi puedo comparar si son iguales o no
+    const compared=JSON.stringify(filter)!==JSON.stringify(countries);
     return (
-        <section className={style.Container_Cards}>
-            {countries.map(country=>(
-                    <Card 
-                    key={country.id} 
-                    id={country.id} 
-                    name={country.name} 
-                    flags={country.flags} 
-                    continent={country.continent}/>
+    <section className={style.Container_Cards}>
+        {compared? countries.map(country => (
+            <Card
+                key={country.id}
+                id={country.id}
+                name={country.name}
+                flags={country.flags}
+                continent={country.continent}
+            />
+            ))
+        : filter.map(country => (
+            <Card
+                key={country.id}
+                id={country.id}
+                name={country.name}
+                flags={country.flags}
+                continent={country.continent}
+            />
             ))}
-            
-        </section>
-    )
+    </section>
+);
+
 }
 export default Cards;

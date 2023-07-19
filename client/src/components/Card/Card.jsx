@@ -12,8 +12,8 @@ const Card=({id,name,flags,continent})=> {
             </div>
 
             <div>
-                <h2>{`${name}`}</h2>
-                <h2>{`${continent}`}</h2>
+                <h2>{`Name:${name}`}</h2>
+                <h2>{`Continent:${continent}`}</h2>
             </div>
             </NavLink>
             

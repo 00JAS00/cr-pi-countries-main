@@ -79,7 +79,7 @@ export const orderPopulation = (payload) => {
 };
 export const filterByContinent = (payload) => {
   return {
-    type: FILTER_BY_CONTINENT,
+    type:FILTER_BY_CONTINENT,
     payload,
   };
 };

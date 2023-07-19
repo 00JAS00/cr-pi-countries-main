@@ -2,3 +2,9 @@
     display: flex;
     flex-direction: column;
 }
+main{
+    background-image: url("./assets/earth.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-width: 100%;
+}

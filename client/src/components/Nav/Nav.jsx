@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Filters from "../Filters/Filters";
 import SearchBar from "../SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
 import { getCountries } from "../../Redux/Actions/Actions";
@@ -10,9 +11,10 @@ const Nav=()=> {
     const {pathname} = useLocation()
     return (
         <nav>
-            
+            <Filters />
             {pathname == '/home' && <NavLink to="/home" onClick={()=>dispatch(getCountries())}>home</NavLink>}
             <SearchBar />
+            
         </nav>
     )
 }
