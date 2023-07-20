@@ -51,8 +51,10 @@ export const getActivities = () => async (dispatch) => {
   });
 };
 export const postActivity = (activity) => async (dispatch) => {
+  console.log(activity);
   const response = await axios.post(URL + "activities", activity);
   const data = response.data;
+  console.log(Object.keys(response))
   return dispatch({
     type: POST_ACTIVITY,
     payload: data,

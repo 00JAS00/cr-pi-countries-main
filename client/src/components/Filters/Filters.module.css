@@ -1,0 +1,13 @@
+.container{
+    text-align: center;
+}
+select{
+    margin-left: 0.5rem;
+    padding:0.2rem;
+    
+    border-radius: 10px;
+}
+.reset{
+    border-radius: 10px;
+    padding:0.2rem;
+}

@@ -16,7 +16,7 @@ const Nav=()=> {
                 
                 <NavLink to="/home" className={style.home} onClick={() => dispatch(getCountries())} >home</NavLink>
                 <div className={style.searchBar}>
-                    <NavLink className={style.navLink}>Activities</NavLink>
+                    <NavLink to="/activities" className={style.navLink}>Activities</NavLink>
                     <NavLink  to='/form' className={style.navLink}> crear actividades</NavLink>
                     <SearchBar />
                 </div>

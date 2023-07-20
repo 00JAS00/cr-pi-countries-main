@@ -1,0 +1,19 @@
+.activity{
+    margin-top:40px;
+    background-color: antiquewhite;
+    padding:5px;
+    border-radius:5px;
+    width:200px;
+    margin:50px;
+    border: solid 2px rgb(0, 0, 0);
+}
+
+
+.dataActivity{
+    margin:20px;
+    color:rgb(112, 18, 18);
+}
+
+.activityP{
+    color:#000000;
+}

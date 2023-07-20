@@ -111,97 +111,99 @@ const Form=()=> {
 
 
     return(
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.container}>
+            <form className={styles.form} onSubmit={handleSubmit}>
 
-            <h1>Create your tourist activity</h1>
+                <h1>Create your tourist activity</h1>
 
-            {/** NOMBRE */}
+                {/** NOMBRE */}
 
-            <div className={styles.inputsContainer}>
-                <div>
-                    <label>Name </label>
+                <div className={styles.inputsContainer}>
+                    <div>
+                        <label>Name </label>
+                    </div>
+                    <input className={styles.inputs} type="text" onChange={handleChange} value={form.name} name="name" placeholder="Activity name"/>
+                    {errors.name && <p className={styles.errors}>{errors.name}</p>}
                 </div>
-                <input className={styles.inputs} type="text" onChange={handleChange} value={form.name} name="name" placeholder="Activity name"/>
-                {errors.name && <p className={styles.errors}>{errors.name}</p>}
-            </div>
 
-                {/* DIFFICULTY */}
+                    {/* DIFFICULTY */}
 
-            <div className={styles.inputsContainer}>
-                <div>
-                    <label>Difficulty </label>
+                <div className={styles.inputsContainer}>
+                    <div>
+                        <label>Difficulty </label>
+                    </div>
+                    <input className={styles.inputs} type="text" onChange={handleChange} value={form.difficulty} name="difficulty" placeholder="From 1 to 5"/>
+                    {errors.difficulty && <p className={styles.errors}>{errors.difficulty}</p>}
                 </div>
-                <input className={styles.inputs} type="text" onChange={handleChange} value={form.difficulty} name="difficulty" placeholder="From 1 to 5"/>
-                {errors.difficulty && <p className={styles.errors}>{errors.difficulty}</p>}
-            </div>
 
-                {/* DURATION */}
+                    {/* DURATION */}
 
-            <div className={styles.inputsContainer}>
-                <div>
-                    <label>Duration </label>
+                <div className={styles.inputsContainer}>
+                    <div>
+                        <label>Duration </label>
+                    </div>
+                    <input className={styles.inputs} type="text" onChange={handleChange} value={form.duration} name="duration" placeholder="Enter the duration in hours (1hs)"/>
+                    {errors.duration && <p className={styles.errors}>{errors.duration}</p>}
                 </div>
-                <input className={styles.inputs} type="text" onChange={handleChange} value={form.duration} name="duration" placeholder="Enter the duration in hours (1hs)"/>
-                {errors.duration && <p className={styles.errors}>{errors.duration}</p>}
-            </div>
 
-            {/* SEASON */}
+                {/* SEASON */}
 
-            <div className={styles.checkDiv}>
-                    <select className={styles.selectCountry} onChange={handleSeasons}>
-                        <option className={styles.seasons} value="empty">Select season</option>
-                        <option value="summer">Summer</option>
-                        <option value="autumn">Autumn</option>
-                        <option value="winter">Winter</option>
-                        <option value="spring">Spring</option>
-                    </select>
-                    {errors.season && <p className={styles.errors}>{errors.season}</p>}
-            </div>
-            {/* COUNTRIES */}
-            <select 
-            className={styles.selectCountry} 
-            value={selected} 
-            onChange={event => [handleCountries(event),
-            setSelected(event)]}>
-                <option>Select Country</option>
-                {countriesList?.map(country => {
-                    return(
-                        <option key={country.name}>
-                            {country.name}
-                        </option>
-                    )
-                })}
-            </select>
-                {errors.countries && <p className={styles.errors}>{errors.countries}</p>}
-
-                {/* DELETE COUNTRY  */}
-
-
-                <div>
-                    {form.countries.map((country) => {
+                <div className={styles.checkDiv}>
+                        <select className={styles.selectCountry} onChange={handleSeasons}>
+                            <option className={styles.seasons} value="empty">Select season</option>
+                            <option value="summer">Summer</option>
+                            <option value="autumn">Autumn</option>
+                            <option value="winter">Winter</option>
+                            <option value="spring">Spring</option>
+                        </select>
+                        {errors.season && <p className={styles.errors}>{errors.season}</p>}
+                </div>
+                {/* COUNTRIES */}
+                <select 
+                className={styles.selectCountry} 
+                value={selected} 
+                onChange={event => [handleCountries(event),
+                setSelected(event)]}>
+                    <option>Select Country</option>
+                    {countriesList?.map(country => {
                         return(
-                            <div className={styles.divBtn} key={country}>
-                                <p>{country}</p>
-                                <button className={styles.buttonDelete} onClick={deleteCountry} value={country}> X </button>
-                            </div>
+                            <option key={country.name}>
+                                {country.name}
+                            </option>
                         )
                     })}
-                </div>
-
-                {/* END OR CATCH ERRORS */}
-
-                <div>
-                    <button className={styles.button} 
-                    type="submit" 
-                    disabled={disabled ||
-                        errors.name ||
-                        errors.difficulty || 
-                        errors.duration || 
-                        errors.countries ||
-                        errors.season} 
-                        onClick={handleErrors}>Create Actvitiy</button>
-                </div>
-        </form>
+                </select>
+                    {errors.countries && <p className={styles.errors}>{errors.countries}</p>}
+                
+                    {/* DELETE COUNTRY  */}
+                
+                
+                    <div>
+                        {form.countries.map((country) => {
+                            return(
+                                <div className={styles.divBtn} key={country}>
+                                    <p>{country}</p>
+                                    <button className={styles.buttonDelete} onClick={deleteCountry} value={country}> X </button>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    
+                    {/* END OR CATCH ERRORS */}
+                    
+                    <div>
+                        <button className={styles.button} 
+                        type="submit" 
+                        disabled={disabled ||
+                            errors.name ||
+                            errors.difficulty || 
+                            errors.duration || 
+                            errors.countries ||
+                            errors.season} 
+                            onClick={handleErrors}>Create Actvitiy</button>
+                    </div>
+                </form>
+        </div>
 )
 }
 

@@ -37,7 +37,7 @@ const reducer = (state = initialState, action) => {
         }
         
     case POST_ACTIVITY:
-        return {...state}
+        return { ...state,}
 
     case ORDER_COUNTRIES:
         let orderedCountries =action.payload === 'asc' ? state.countries.sort((a, b) => a.name.localeCompare(b.name)) :

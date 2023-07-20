@@ -31,9 +31,6 @@ const validation = (form) => {
     if(!/^([0-9]|1[0-9]|2[0-3])+hs$/.test(form.duration)){
         errors.duration = "Invalid duration, Example: 2hs";
     }
-    else{
-        errors.duration = "";
-    }
 
     //* validation season 
 

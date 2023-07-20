@@ -9,6 +9,7 @@ import { getCountries } from './Redux/Actions/Actions'
 import Cards from './components/Cards/Cards'
 import Nav from './components/Nav/Nav'
 import Detail from './components/Detail/Detail'
+import Activities from './components/Activities/ActivitiesContainer'
 
 // * Views
 
@@ -22,6 +23,7 @@ function App() {
     useEffect(() => {
         dispatch(getCountries());
     }, [dispatch])
+    
   return (
     <div className="app bg-pan-left">
         <header>
@@ -33,6 +35,7 @@ function App() {
               <Route path="/home" element={<Cards />} />
               <Route path="/detail/:id" element={<Detail />} />
               <Route path="/form" element={<Form />} />
+              <Route path="/activities" element={<Activities />} />
             </Routes>
         </main>
     </div>
