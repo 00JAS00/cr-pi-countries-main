@@ -72,7 +72,7 @@ const Form=()=> {
         event.preventDefault();
         if(form.name === '' && form.duration === '' && form.difficulty === ''  && form.season === '' && form.season === '' && form.countries === '') return alert('Incomplete fields, please complete all fields')
         dispatch(postActivity(form))
-        alert("Activity created successfully")
+        // alert("Activity created successfully")
         setForm({
             name: "",
             difficulty: "",
